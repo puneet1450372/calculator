@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset="UTF-8" /> 
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0" /> 
+<style type="text/css">
+
+* {
+  box-sizing: border-box;
+}
+	table{
+		margin:0 auto;
+	}
+	input[type="button"] 
+         { 
+         background-color:#88eaa3; 
+         color: black; 
+         border: solid white 2px; 
+         width:100%;
+         height: 50px;
+         font-size: 25px;
+         } 
+         input[type="text"] 
+         { 
+         background-color:white; 
+         border: solid white 2px; 
+         width:100%;
+         background-color: #ede8e8;
+         font-size: 30px;
+         } 
+         body{
+         		margin-top: 200px;
+          		background: #F6F6F6;
+  				padding-bottom: 30px;
+ 			 	padding-top: 30px;
+ 			 }
+				
+button{
+font-size: 100px;
+}
+
+</style>
+
+
+</head>	
+<body>
+
+<table style="border:5px solid gray; border-radius: 10px; padding-top: 20px; padding-bottom:15px; width: 30%; height:400px;">
+	
+<tr><td  colspan="4"><input type="text" placeholder="0" Id="result" style="height: 80px;" /></td></tr>
+
+	<tr style="font-size: 20px;width:600px;">
+		<td colspan="2"><input type="button" value="M" name="" onclick="modul()"></td>
+		
+		<td colspan="2"><input type="button" value="C"  onclick="clr()" style="background-color: #f49a66" /></td>
+		
+	</tr>
+	
+	<tr style="font-size: 20px;width:600px;">
+		<td><input type="button" value="1" name="" onclick="dis('1')"></td>
+		<td><input type="button" value="2" name="" onclick="dis('2')"></td>
+		<td><input type="button" value="3" name="" onclick="dis('3')"></td>
+		<td><input type="button" value="/" name="" onclick="operation('/')"> </td>
+	</tr>
+	
+	<tr  style="font-size: 20px;width:600px;">
+		<td><input type="button" value="4" name="" onclick="dis('4')"> </td>
+		<td><input type="button" value="5" name="" onclick="dis('5')"></td>
+		<td><input type="button" value="6" name="" onclick="dis('6')"></td>
+		<td><input type="button" value="-" name="" onclick="operation('-')"></td>
+	</tr>
+	
+	<tr  style="font-size: 20px;width:600px;">
+		<td><input type="button" value="7" name="" onclick="dis('7')"></td>
+		<td><input type="button" value="8" name="" onclick="dis('8')"></td>
+		<td><input type="button" value="9" name="" onclick="dis('9')"></td>
+		<td><input type="button" value="+" name="" onclick="operation('+')"></td>
+	</tr>
+	
+	<tr  style="font-size: 20px;width:600px;">
+		<td><input type="button" value="0" name="" onclick="dis('0')"></td>
+		<td><input type="button" value="." name="" onclick="dis('.')"></td>
+		<td><input type="button" value="=" id="edu" onclick= "operation('=')" ></td>
+		<td><input type="button" value="*" name="" onclick="operation('*')"></td>
+	</tr>
+	
+	
+
+</table>
+
+</body>
+<script type="text/javascript">
+
+	var displayVal='';
+	var preval=0;
+	var opt='+';
+	var result;
+
+	function dis(operand){
+		displayVal+= operand;
+		document.getElementById("result").value=displayVal;
+	}
+
+	function operation(operator)
+	{
+		console.log(displayVal);
+		switch(opt)
+		{
+			case '+':
+				result=parseFloat(parseFloat(preval)+parseFloat(displayVal));
+				
+  
+				break;
+			case '-':
+				result=parseFloat(parseFloat(preval)-parseFloat(displayVal));
+
+
+				break;
+			case '*':
+				result=parseFloat(parseFloat(preval)*parseFloat(displayVal));
+				
+ 
+				break;
+			case '/':
+				result=parseFloat(parseFloat(preval)/parseFloat(displayVal));
+				
+  
+				break;
+			case '=':
+				document.getElementById("result").value=displayVal;
+				break;
+			
+				
+		}
+		document.getElementById('result').value=result;
+		displayVal='';
+		preval=result;
+		opt=operator;
+
+	}
+
+function clr()
+{
+	document.getElementById('result').value=" 0";
+	displayVal='';
+	preval=0;
+	opt='+';
+}
+
+</script>
+
+</html>
+
